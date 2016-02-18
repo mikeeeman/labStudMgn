@@ -6,7 +6,7 @@
 **Purpose**
  :  This file contains the project description of the software "Student Management System".
 
-The application is an exercise of course BTF2231 (C programming course). The file is written in Markdown. open it up in a browser like Google Chromium (with Markdown Preview Add-On installed).
+The application is an exercise of course BTF2231 (C programming course). The file is written in Markdown. Open it up in a browser like Google Chromium or Mozilla Firefox (with Markdown Preview Add-On installed).
 
 **Author**
  :  Andreas HABEGGER <andreas.habegger@bfh.ch>
