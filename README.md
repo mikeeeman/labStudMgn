@@ -22,6 +22,10 @@ Structure of Directory
 
 This folder contains documentation files. The files are most likely in PDF format.
 
+####FILES:
+helper.c  helper.h  studctrl.c  studctrl.h  studentMgnSystem.c  studentMgnSystem.pro  userctrl.c  userctrl.h
+
+
 ### src/
 
 This folder contains source code files. Because it is a C programming exercise the source files contain appropriate syntax.
