@@ -22,8 +22,15 @@ Structure of Directory
 
 This folder contains documentation files. The files are most likely in PDF format.
 
-####FILES:
-helper.c  helper.h  studctrl.c  studctrl.h  studentMgnSystem.c  studentMgnSystem.pro  userctrl.c  userctrl.h
+**FILES:**
+ - studentMgnSystem.pro : QT creator project settings file
+ - studentMgnSystem.c : Main program source file
+ - helper.c : Helper module source file
+ - helper.h : Helper module interface file (header file)
+ - userctrl.c : User control module. Consists functions for simple program control on CLI.
+ - userctrl.h : User control module interface file (header)
+ - studctrl.c : Student control module. Several functions to manipulate data-set
+ - studctrl.h : Student control module interface file (header file)
 
 
 ### src/
