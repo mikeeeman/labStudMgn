@@ -22,6 +22,10 @@ Structure of Directory
 
 This folder contains documentation files. The files are most likely in PDF format.
 
+### src/
+
+This folder contains source code files. Because it is a C programming exercise the source files contain appropriate syntax.
+
 **FILES:**
  - studentMgnSystem.pro : QT creator project settings file
  - studentMgnSystem.c : Main program source file
@@ -31,12 +35,6 @@ This folder contains documentation files. The files are most likely in PDF forma
  - userctrl.h : User control module interface file (header)
  - studctrl.c : Student control module. Several functions to manipulate data-set
  - studctrl.h : Student control module interface file (header file)
-
-
-### src/
-
-This folder contains source code files. Because it is a C programming exercise the source files contain appropriate syntax.
-
 ___
 
 Get Started
