@@ -7,7 +7,8 @@ SOURCES += \
     helper.c \
     studentMgnSystem.c \
     studctrl.c \
-    userctrl.c
+    userctrl.c \
+    getdelim.c
 
 HEADERS += \
     helper.h \
