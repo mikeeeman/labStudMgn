@@ -25,6 +25,8 @@
  * @bug currently no bugs
  * @todo no open tasks
  */
+/* meyec2 notiz*/
+
 #include <stdio.h>
 
 #include "helper.h"
