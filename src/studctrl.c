@@ -60,30 +60,37 @@ int addRec(studRec_t studList[], int *itemCount)
   size_t chars = 0;
 
   puts("Add new student record !!");
+  fflush(stdout);
 
   printf("Set student's ID of new record [max %u characters]: ", (ID_SIZE-1) );
+  fflush(stdout);
   scanf("%6s", studList[*itemCount].id );
   flushStdin();
 
   printf("Set student's family name : ");
+  fflush(stdout);
   getline(&(studList[*itemCount].lname), &chars, stdin);
   strtok(studList[*itemCount].lname,"\n");
 
   printf("Set student's first name : ");
+  fflush(stdout);
   chars = 0;
   getline(&(studList[*itemCount].fname), &chars, stdin);
   strtok(studList[*itemCount].fname,"\n");
 
   printf("Set student's email address [name@domain]: ");
+  fflush(stdout);
   chars = 0;
   getline(&(studList[*itemCount].email), &chars, stdin);
   strtok(studList[*itemCount].email,"\n");
 
   printf("Set student's gender [m/f]: ");
+  fflush(stdout);
   scanf("%1s", studList[*itemCount].sex );
   flushStdin();
 
   printf("Do you want add scores ? [y/N] ");
+  fflush(stdout);
   if('y' == getchar())
   {
     flushStdin();
@@ -153,17 +160,29 @@ void viewRec(studRec_t studList[], int itemIdx)
 {
 
   printf(" %s\t",studList[itemIdx].id);
+  fflush(stdout);
   printf(" %s\t",studList[itemIdx].fname);
+  fflush(stdout);
   printf(" %s\t",studList[itemIdx].lname);
+  fflush(stdout);
   printf(" %s\t",studList[itemIdx].email);
+  fflush(stdout);
   printf("  %s  ",studList[itemIdx].sex);
+  fflush(stdout);
   printf(" %3.2f ",studList[itemIdx].quiz1);
+  fflush(stdout);
   printf(" %3.2f ",studList[itemIdx].quiz2);
+  fflush(stdout);
   printf(" %3.2f ",studList[itemIdx].termExam);
+  fflush(stdout);
   printf(" %3.2f ",studList[itemIdx].finalExam);
+  fflush(stdout);
   printf(" %3.2f ",studList[itemIdx].finalScore);
+  fflush(stdout);
   printf(" %3.2f ",studList[itemIdx].avrScore);
+  fflush(stdout);
   printf(" %d ",studList[itemIdx].finalGrade);
+  fflush(stdout);
   printf("\n");
   return;
 }
@@ -173,7 +192,9 @@ void viewAll(studRec_t studList[], int itemCount)
   int index = 0;
 
   printf("  ID       First Name     Family Name        E-Mail        G    Q1   Q2   TExam  FExam  Score   Avr  Grade\n");
+  fflush(stdout);
   printf("------- --------------- ------------------ -------------- ---- ---- ----  ------ ------ ------ ----- -----\n");
+  fflush(stdout);
 
   for(index = 0; index < itemCount; index++)
     viewRec(studList, index);
@@ -185,7 +206,8 @@ int delRec(studRec_t studList[], int *itemCount, int itemIdx)
 {
   if(itemIdx<0 || itemIdx >= *itemCount)
   {
-    puts("Error : index is not a valid possition");
+    puts("Error : index is not a valid position");
+    fflush(stdout);
     return EXIT_FAILURE;
   }
 
@@ -222,10 +244,12 @@ void updateRec(studRec_t studList[], int itemIdx)
   size_t chars = 0;
 
   puts("Update student record... !!");
+  fflush(stdout);
 
   if(changeRec("student's ID"))
   {
     printf("Set new student ID record [max %u characters]: ", (ID_SIZE-1) );
+    fflush(stdout);
     scanf("%6s", studList[itemIdx].id );
     flushStdin();
   }
@@ -234,6 +258,7 @@ void updateRec(studRec_t studList[], int itemIdx)
   {
     free(studList[itemIdx].lname);
     printf("Set student's family name : ");
+    fflush(stdout);
     chars = 0;
     getline(&(studList[itemIdx].lname), &chars, stdin);
   }
@@ -242,6 +267,7 @@ void updateRec(studRec_t studList[], int itemIdx)
   {
     free(studList[itemIdx].fname);
     printf("Set student's first name : ");
+    fflush(stdout);
     chars = 0;
     getline(&(studList[itemIdx].fname), &chars, stdin);
   }
@@ -250,6 +276,7 @@ void updateRec(studRec_t studList[], int itemIdx)
   {
     free(studList[itemIdx].email);
     printf("Set student's email address [name@domain]: ");
+    fflush(stdout);
     chars = 0;
     getline(&(studList[itemIdx].email), &chars, stdin);
   }
@@ -258,11 +285,13 @@ void updateRec(studRec_t studList[], int itemIdx)
   if(changeRec("gender"))
   {
     printf("Set student's gender [m/f]: ");
+    fflush(stdout);
     scanf("%1s", studList[itemIdx].sex );
     flushStdin();
   }
 
   printf("Do you want add/update scores ? [y/N] ");
+  fflush(stdout);
   if('y' == getchar())
   {
     flushStdin();
@@ -342,35 +371,45 @@ static void addScore(studRec_t studList[], int itemCount)
 
   do{
     puts("What score do you want to edit:");
+    fflush(stdout);
     for(index=0; (unsigned)index < sizeof(scoreTypes)/sizeof(ScoreRec); index++)
+    {
       printf("%d\t%s\n",scoreTypes[index].code, scoreTypes[index].desc);
+      fflush(stdout);
+    }
     typeOfScore = getchar();
     typeOfScore -= '0';
 
     printf("Your choise is %d\n", typeOfScore);
+    fflush(stdout);
     switch(typeOfScore){
       case 1:
         printf("Add score for %s [00.00 - 99.99]:", scoreTypes[typeOfScore].desc);
+        fflush(stdout);
         scanf("%f", &(studList[itemCount].quiz1) );
         flushStdin();
         break;
       case 2:
         printf("Add score for %s [00.00 - 99.99]:", scoreTypes[typeOfScore].desc);
+        fflush(stdout);
         scanf("%f", &(studList[itemCount].quiz2) );
         flushStdin();
         break;
       case 3:
         printf("Add score for %s [00.00 - 99.99]:", scoreTypes[typeOfScore].desc);
+        fflush(stdout);
         scanf("%f", &(studList[itemCount].termExam) );
         flushStdin();
         break;
       case 4:
         printf("Add score for %s [00.00 - 99.99]:", scoreTypes[typeOfScore].desc);
+        fflush(stdout);
         scanf("%f", &(studList[itemCount].finalExam) );
         flushStdin();
         break;
       default:
         puts("No valid value!");
+        fflush(stdout);
         break;
     }
   }while(typeOfScore != 0);
@@ -383,6 +422,7 @@ static int changeRec(const char msg[])
   while(1)
   {
     printf("\nWould you like to change the record for %s [y/n]:",msg);
+    fflush(stdout);
     scanf("%c", &willChange);
     flushStdin();
     if(willChange == 'y' || willChange == 'Y')

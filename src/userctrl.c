@@ -79,20 +79,30 @@ void displayMenu(void)
   unsigned int index;
 
   puts("*******************************************************************************");
+  fflush(stdout);
   printf("** \t\t%s \n",menuHeader);
+  fflush(stdout);
   puts("*******************************************************************************\n");
+  fflush(stdout);
 
   puts("Select one of the available options");
+  fflush(stdout);
   for(index=0; index < NUM_OF_OPTIONS; index++)
+  {
     printf("%3.u : %s\n", dialogue[index].code, dialogue[index].desc);
+    fflush(stdout);
+  }
 
   printf("\nWhat is your choise [%u - %u] : ",dialogue[0].code, dialogue[NUM_OF_OPTIONS-1].code);
+  fflush(stdout);
 }
 
 void displayChoise(unsigned int help)
 {
   printf("\nType %u for help dialogue : ",help);
+  fflush(stdout);
   printf("\nWhat is your choise [%u - %u] : ",dialogue[0].code, dialogue[NUM_OF_OPTIONS-1].code);
+  fflush(stdout);
 }
 
 unsigned int getSel(void)
@@ -105,6 +115,7 @@ unsigned int getSel(void)
   while( !isValid(selection) )
     {
       puts("Selection not valid. Try again :");
+      fflush(stdout);
       scanf("%u",&selection);
       flushStdin();
     }

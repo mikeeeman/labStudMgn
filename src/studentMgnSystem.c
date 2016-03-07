@@ -57,7 +57,10 @@ int main(void)
           if(!IS_LIST_FULL(studEntries, MAX_ENTRIES))
             addRec(myList, &studEntries);
           else
+          {
             puts("List is full");
+            fflush(stdout);
+          }
           break;
         case 2:
           index = whichRec("delete", myList, studEntries) - 1;
@@ -80,6 +83,7 @@ int main(void)
             calcScoreFinal(myList, index);
           index = searchRecMaxScore(myList, studEntries);
           puts("\nStudent with the higest score \n");
+          fflush(stdout);
           viewRec(myList, index);
           break;
         case 7:
@@ -87,15 +91,20 @@ int main(void)
             calcScoreFinal(myList, index);
           index = searchRecMinScore(myList, studEntries);
           puts("\nStudent with the lowest score \n");
+          fflush(stdout);
           viewRec(myList, index);
           break;
         case 8:
           printf("Search for record by ID [max %u characters]: ", (ID_SIZE-1) );
+          fflush(stdout);
           fgets(searchID, ID_SIZE-1, stdin);
           strtok(searchID,"\n");
           index = searchRec(myList, searchID, studEntries);
           if(index == -1)
+          {
             printf("No record in the list with ID %s\n", searchID);
+          fflush(stdout);
+          }
           else
             viewRec(myList, index);
           break;
@@ -108,6 +117,7 @@ int main(void)
           break;
         case 11:
           puts("Stop application...");
+          fflush(stdout);
           isEnable = false;
           break;
         default:
@@ -146,6 +156,7 @@ int whichRec(const char msg[], studRec_t studList[], int itemCount)
 {
   int record = 0;
   printf("Which record do you want to %s : ",msg);
+  fflush(stdout);
 //  flushStdin();
 
   while(1){
@@ -154,7 +165,9 @@ int whichRec(const char msg[], studRec_t studList[], int itemCount)
       if(record > 0 && record < itemCount+1)
         break;
       printf("Record %d is not valid! Valid entries [%d - %d]\n", record, 1, itemCount+1);
+      fflush(stdout);
       printf("Do you want available records listed [y/N]\n");
+      fflush(stdout);
       record = getchar();
       if(record == 'y')
         viewAll(studList, itemCount);

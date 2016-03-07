@@ -142,6 +142,7 @@ int main(void)
   size_t n = 0;
   while (getline(&line, &n, stdin) > 0) {
     printf("%s", line);
+    fflush(stdout);
   }
   return 0;
 }

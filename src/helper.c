@@ -35,6 +35,7 @@
 void error_msg(char *msg)
 {
   fprintf(stderr, msg);
+  fflush(stdout);
   return;
 }
 
